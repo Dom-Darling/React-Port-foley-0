@@ -1,11 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import App from './App';
 import './styles/App.css';
 
-const root = ReactDOM.createRoot(document.getElementById('app') as HTMLElement);
-root.render(
+const container = document.getElementById('app');
+if (container) {
+  const root = ReactDOM.createRoot(container as HTMLElement);
+  root.render(
     <React.StrictMode>
-        <App />
+      <App />
     </React.StrictMode>
-);
+  );
+} else {
+  console.error('Failed to find the app element');
+}

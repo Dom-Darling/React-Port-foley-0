@@ -1,19 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
     return (
@@ -27,24 +13,37 @@ const Navigation: React.FC = () => {
                 gap: '1.5rem',
             }}>
                 <li style={{ fontSize: '1.2rem' }}>
-                    <Link to="/about" style={{ color: '#ffffff', textDecoration: 'none' }}>
+                    <NavLink
+                        to="/about"
+                        style={({ isActive }) => ({
+                            color: isActive ? '#61dafb' : '#ffffff',
+                            textDecoration: isActive ? 'underline' : 'none',
+                        })}
+                    >
                         About Me
-                    </Link>
+                    </NavLink>
                 </li>
                 <li style={{ fontSize: '1.2rem' }}>
-                    <Link to="/portfolio" style={{ color: '#ffffff', textDecoration: 'none' }}>
+                    <NavLink
+                        to="/portfolio"
+                        style={({ isActive }) => ({
+                            color: isActive ? '#61dafb' : '#ffffff',
+                            textDecoration: isActive ? 'underline' : 'none',
+                        })}
+                    >
                         Portfolio
-                    </Link>
+                    </NavLink>
                 </li>
                 <li style={{ fontSize: '1.2rem' }}>
-                    <Link to="/contact" style={{ color: '#ffffff', textDecoration: 'none' }}>
+                    <NavLink
+                        to="/contact"
+                        style={({ isActive }) => ({
+                            color: isActive ? '#61dafb' : '#ffffff',
+                            textDecoration: isActive ? 'underline' : 'none',
+                        })}
+                    >
                         Contact
-                    </Link>
-                </li>
-                <li style={{ fontSize: '1.2rem' }}>
-                    <Link to="/resume" style={{ color: '#ffffff', textDecoration: 'none' }}>
-                        Resume
-                    </Link>
+                    </NavLink>
                 </li>
             </ul>
         </nav>
